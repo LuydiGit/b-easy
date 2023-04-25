@@ -24,19 +24,21 @@ const barbearia = new Schema({
         uf: String,
         cep: String,
         numero: Number,
-        pais: String
+        pais: String,
     }, 
 
     geo : {
         tipo: String,
-        coordinates: Array    
+        coordinates: Array,    
     },
 
     dataCadastro: {
         type: Date,
-        dafault: Date.now
-    }
+        dafault: Date.now,
+    },
 
 });
+
+barbearia.index ({ geo: '2dsphere'});
 
 module.exports = mongoose.model('Barbearia', barbearia);
