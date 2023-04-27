@@ -41,10 +41,10 @@ const cliente = new Schema({
         required: [true, 'FTelefone é obrigatório'],
     },
 
-    documento: { 
+    documento: {  //Object de documento
         tipo: {
             type: String,
-            enum : ['individual', 'comporation'],
+            enum : ['individual', 'corporation'], //vai servir para conexão com o pagarme
             required: true,
         },
         numero: {

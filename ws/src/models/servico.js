@@ -6,19 +6,20 @@ const servico = new Schema({
     salaoId: { //Pra quem disse que orientado a documento não tem relacionamento, chupa
         type: mongoose.Types.ObjectId,
         ref: 'Salao',
+        require: true,
     },
 
     titulo: {
         type: String, //Validação no próprio banco de dados
-        required: [true, 'Título é obrigatório'],
+        required: [true],
     },
     preco: {
         type: Number, //Validação no próprio banco de dados
-        required: [true, 'Preço é obrigatório'],
+        required: [true],
     },
     duracao: {
         type: Number, //Validação no próprio banco de dados
-        required: [true, 'E-mail é obrigatório'],
+        required: [true],
     },
     comissao: { //% de comissão sobre o preço
         type: Number, //Definindo valor padrão
@@ -27,14 +28,14 @@ const servico = new Schema({
 
     recorrencia: { //Periodo de volta do cliente
         type: Number, 
-        required: [true, 'DRecorrência é obrigatório'],
+        required: [true],
     },
 
     descricao: {
         type: String,
-        required: [true, 'Descrição é obrigatório'],
+        required: [true],
     },
-    status: { //Essse modelo de exclusão será lógica (usar uma flag para excluido)
+    status: { //Essse modelo de exclusão será lógica (usar uma flag(parametro) para excluido, vai servir para usar em estatisticas)
         type: String,
         enum : ['A', 'I', 'E'],
         default: 'A',
