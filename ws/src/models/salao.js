@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const barbearia = new Schema({
+const salao = new Schema({
 
     nome: {
         type: String, //Validação no próprio banco de dados
@@ -39,6 +39,6 @@ const barbearia = new Schema({
 
 });
 
-barbearia.index ({ geo: '2dsphere'});
+salao.index ({ geo: '2dsphere'});
 
-module.exports = mongoose.model('Barbearia', barbearia);
+module.exports = mongoose.model('Salao', salao);

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const colaborador = new Schema({
+const cliente = new Schema({
 
     nome: {
         type: String, //Validação no próprio banco de dados
@@ -32,7 +32,7 @@ const colaborador = new Schema({
     },
     status: {
         type: String,
-        enum : ['A', 'I'],
+        enum : ['A', 'I', 'E'],
         default: 'A',
     },
 
@@ -41,32 +41,13 @@ const colaborador = new Schema({
         required: [true, 'FTelefone é obrigatório'],
     },
 
-    contaBancaria: { 
-        titular: {
-            type: String,
-            required: true
-        },
-        cpfCnpj: {
-            type: String,
-            required: true
-        },
-        banco: {
-            type: String,
-            required: true
-        },
+    documento: { 
         tipo: {
             type: String,
-            required: true
-        },
-        agencia: {
-            type: String,
-            required: true
+            enum : ['individual', 'comporation'],
+            required: true,
         },
         numero: {
-            type: String,
-            required: true
-        },
-        dv: {
             type: String,
             required: true
         },
@@ -81,6 +62,15 @@ const colaborador = new Schema({
         type: String,
         required: true
     },
+
+    endereco: {
+        cidade: String,
+        uf: String,
+        cep: String,
+        numero: Number,
+        pais: String,
+    }, 
+
 });
 
-module.exports = mongoose.model('Colaborador', colaborador);
+module.exports = mongoose.model('Cliente', cliente);
