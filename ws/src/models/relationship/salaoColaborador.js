@@ -13,6 +13,15 @@ const salaoColaborador = new Schema({
         ref: 'Colaborador',
         required: true
     },
+    status: {
+        type: String,
+        enum : ['A', 'I'],
+        default: 'A',
+    },
+    dataCadastro :{
+        type: Date,
+        dafault: Date.now,
+    },
 
 });
 module.exports = mongoose.model('SalaoColaborador', salaoColaborador);

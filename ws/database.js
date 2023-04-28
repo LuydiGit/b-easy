@@ -1,12 +1,17 @@
 const mongoose = require('mongoose');
-const URI = '';
+const server = 'mongodb+srv://salaoUser:d90eCIbhMcKuLHT6@clusterdev.zb1rnyw.mongodb.net';
+const database = 'clusterdev';
 
-mongoose.set ('useNewUrlParser', true);
-mongoose.set ('useFindAndModify', true);
-mongoose.set ('useCreateIndex', true);
-mongoose.set ('useUnifiedTopology', true);
-
-mongoose
-    .connect(URI)
-    .ther(() => console.log ('DB is up!'))
-    .catch(() => console.log(err));
+mongoose.connect(`${server}/${database}`,
+   { useNewUrlParser: true, useUnifiedTopology: true }
+).then(() => {
+   console.log("Banco de Dados MongoDB conectado.");
+})
+   .catch(err => {
+      console.error("Erro na conexão com o Banco de Dados", err);
+      process.exit();
+   });
+//mongoose.set('useNewUrlParser', true);
+//mongoose.set('useFindAndModify', false);
+//mongoose.set('useCreateIndex', true);
+//mongoose.set('useUnifiedTopology', true);

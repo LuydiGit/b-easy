@@ -32,7 +32,7 @@ const cliente = new Schema({
     },
     status: {
         type: String,
-        enum : ['A', 'I', 'E'],
+        enum : ['A', 'I'],
         default: 'A',
     },
 

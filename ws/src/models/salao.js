@@ -9,6 +9,7 @@ const salao = new Schema({
     },
     foto: String,
     capa: String,
+    
     email: {
         type: String, //Validação no próprio banco de dados
         required: [true, 'E-mail é obrigatório'],
